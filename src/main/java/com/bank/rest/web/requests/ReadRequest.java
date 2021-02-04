@@ -9,7 +9,7 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReadRequest {
 
-    private String accountNumber;
+    private String accountId;
 
     private String accountHolderName;
 

@@ -48,7 +48,7 @@ public class AccountWriteServiceImpl implements IAccountWriteService {
     public boolean performCreditOperation(String fromAccountNumber, String toAccountNumber, String amount,
         String customerID) {
 
-        Account account = iAccountRepo.findByAccountNumber(fromAccountNumber);
+        Account account = iAccountRepo.findByAccountId(fromAccountNumber);
 
         if (account == null) {
             return false;

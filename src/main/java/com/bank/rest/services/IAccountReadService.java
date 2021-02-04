@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public interface IAccountReadService {
 
-    BigDecimal getAccountBalance(String accountNumber);
+    BigDecimal getAccountBalance(String accountId);
 
     Customer getAccountHolder(String username);
 
@@ -17,6 +17,6 @@ public interface IAccountReadService {
 
     Collection getAllAccountsOfCustomer(Long customerID);
 
-    Collection<Transaction> getAllTransactionsOfCustomer(String username);
+    Collection<Transaction> getAllTransactionsOfCustomer(String userName);
 
 }

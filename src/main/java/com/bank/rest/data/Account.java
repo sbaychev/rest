@@ -31,7 +31,7 @@ public class Account extends DeactivatableEntity<Long> {
     private Set<Customer> accountHolder;
 
     @Column(unique = true)
-    private String accountNumber;
+    private String accountId;
 
     @Column
     private BigDecimal accountBalance;
@@ -44,7 +44,7 @@ public class Account extends DeactivatableEntity<Long> {
     public Account() {
         this.transaction = new LinkedHashSet<>(1);
         this.accountHolder = new LinkedHashSet<>(1);
-        this.accountNumber = "";
+        this.accountId = "";
         this.accountBalance = new BigDecimal(0);
     }
 }

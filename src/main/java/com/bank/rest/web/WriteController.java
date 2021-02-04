@@ -43,7 +43,7 @@ public class WriteController {
     @Autowired
     IAccountWriteService iAccountWriteServices;
 
-    @PostMapping(path = "/make-payment")
+    @PostMapping(path = "/payments")
     @ResponseBody
     public Callable<ResponseEntity> getAccountBalance(
         @Valid @RequestParam(value = "accountNumber") String accountNumber,
@@ -63,7 +63,7 @@ public class WriteController {
     }
 
     @PostMapping("/customer")
-    public ResponseEntity<Customer> createEmployee(@RequestBody Customer customer) {
+    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
 
         HttpStatus status = HttpStatus.CREATED;
 

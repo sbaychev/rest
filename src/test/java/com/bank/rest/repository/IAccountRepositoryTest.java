@@ -27,18 +27,18 @@ public class IAccountRepositoryTest {
         Account _123456Z = Account.builder()
             .accountBalance(new BigDecimal(1))
             .accountHolder(null)
-            .accountNumber("123456Z")
+            .accountId("123456Z")
             .transaction(null)
             .build();
         entityManager.persistAndFlush(_123456Z);
 
-        Account found = iAccountRepo.findByAccountNumber(_123456Z.getAccountNumber());
-        assertThat(found.getAccountNumber()).isEqualTo(_123456Z.getAccountNumber());
+        Account found = iAccountRepo.findByAccountId(_123456Z.getAccountId());
+        assertThat(found.getAccountId()).isEqualTo(_123456Z.getAccountId());
     }
 
     @Test
     public void whenInvalidUserName_thenReturnNull() {
-        Account fromDb = iAccountRepo.findByAccountNumber("doesNotExist");
+        Account fromDb = iAccountRepo.findByAccountId("doesNotExist");
         assertThat(fromDb).isNull();
     }
 }

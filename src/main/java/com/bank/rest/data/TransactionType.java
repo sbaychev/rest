@@ -5,7 +5,7 @@ public enum TransactionType {
 
     public final String label;
 
-    private TransactionType(String label) {
+    TransactionType(String label) {
         this.label = label;
     }
 }

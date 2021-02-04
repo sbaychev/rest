@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -45,11 +46,11 @@ public class ReadController {
     @Autowired
     IAccountReadService iAccountReadServices;
 
-    @GetMapping(path = "/account-balance")
+    @GetMapping(path = "/account/{accountId}/balance")
     @ResponseBody
-    public ResponseEntity getAccountBalance(@RequestParam(value = "accountNumber") String accountNumber) {
+    public ResponseEntity getAccountBalance(@PathVariable(value = "accountId") String accountId) {
 
-        BigDecimal bigDecimal = iAccountReadServices.getAccountBalance(accountNumber);
+        BigDecimal bigDecimal = iAccountReadServices.getAccountBalance(accountId);
 
         if (bigDecimal != null) {
             return new ResponseEntity(bigDecimal, HttpStatus.OK);
@@ -57,7 +58,7 @@ public class ReadController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping(path = "/all-accounts-for-customer")
+    @GetMapping(path = "/accounts")
     @ResponseBody
     public ResponseEntity getAllAccountsForCustomer(@RequestParam(value = "accountID") Long accountID)
         throws JsonProcessingException {
@@ -85,12 +86,12 @@ public class ReadController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping(path = "/customer-transactions")
+    @GetMapping(path = "/customer/{userName}/transactions")
     @ResponseBody
-    public ResponseEntity getCustomerTransactions(@RequestParam(value = "username") String username)
+    public ResponseEntity getCustomerTransactions(@PathVariable(value = "userName") String userName)
         throws JsonProcessingException {
 
-        Collection<Transaction> transactions = iAccountReadServices.getAllTransactionsOfCustomer(username);
+        Collection<Transaction> transactions = iAccountReadServices.getAllTransactionsOfCustomer(userName);
 
         if (transactions != null) {
 

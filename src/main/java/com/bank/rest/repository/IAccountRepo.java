@@ -23,7 +23,7 @@ public interface IAccountRepo extends JpaRepository<Account, Long> {
     Optional<Account> findById(Long id);
 
     @Lock(LockModeType.PESSIMISTIC_READ)
-    Account findByAccountNumber(String accountNumber);
+    Account findByAccountId(String accountId);
 
     /**
      * Saves the given {@link Account}.

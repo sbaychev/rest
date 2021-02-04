@@ -28,15 +28,16 @@ public class IAccountReadServiceTest {
     }
 
     @Test
-    public void findAll_WhenRecordPresent_ReturnList() {
+    public void findByAccountNumber_WhenRecordPresent_Return() {
 
         //Given
-        when(iAccountRepo.findByAccountNumber("123456A")).thenReturn(new Account());
+        when(iAccountRepo.findByAccountId("123456A")).thenReturn(new Account());
+
         //When
         BigDecimal balance = iAccountReadService.getAccountBalance("123456A");
 
         //Then
         assert (balance != null);
-        verify(iAccountRepo, times(1)).findByAccountNumber("123456A");
+        verify(iAccountRepo, times(1)).findByAccountId("123456A");
     }
 }

@@ -53,13 +53,13 @@ public class ConcurrentTests {
         Account account = mockIAccountRepo.save(Account.builder()
             .accountBalance(new BigDecimal(10000))
             .accountHolder(Collections.emptySet())
-            .accountNumber("123456A")
+            .accountId("123456A")
             .build());
 
         Account account1 = mockIAccountRepo.save(Account.builder()
             .accountBalance(new BigDecimal(50000))
             .accountHolder(Collections.emptySet())
-            .accountNumber("123456B")
+            .accountId("123456B")
             .build());
 
         BigDecimal balance = account.getAccountBalance();

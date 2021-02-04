@@ -44,9 +44,9 @@ public class AccountReadServiceImpl implements IAccountReadService {
     }
 
     @Override
-    public BigDecimal getAccountBalance(String accountNumber) {
+    public BigDecimal getAccountBalance(String accountId) {
 
-        Account account = iAccountRepo.findByAccountNumber(accountNumber);
+        Account account = iAccountRepo.findByAccountId(accountId);
 
         if (null != account) {
             return account.getAccountBalance();
@@ -55,8 +55,8 @@ public class AccountReadServiceImpl implements IAccountReadService {
     }
 
     @Override
-    public Customer getAccountHolder(String username) {
-        Customer customer = iCustomerRepo.findByUsername(username);
+    public Customer getAccountHolder(String userName) {
+        Customer customer = iCustomerRepo.findByUsername(userName);
         try {
             LOG.info(objectMapper.writeValueAsString(customer));
         } catch (JsonProcessingException e) {

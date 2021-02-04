@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ICustomerRepo extends JpaRepository<Customer, Long> {
 
     @Lock(LockModeType.PESSIMISTIC_READ)
-    Customer findByUsername(String username);
+    Customer findByUsername(String userName);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     <S extends Customer> S save(S customer);
