@@ -8,12 +8,13 @@ import com.bank.rest.data.Account;
 import com.bank.rest.repository.IAccountRepo;
 import com.bank.rest.services.impl.AccountReadServiceImpl;
 import java.math.BigDecimal;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 public class IAccountReadServiceTest {
 
     @InjectMocks
@@ -21,11 +22,6 @@ public class IAccountReadServiceTest {
 
     @Mock
     private IAccountRepo iAccountRepo;
-
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
 
     @Test
     public void findByAccountNumber_WhenRecordPresent_Return() {

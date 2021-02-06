@@ -27,8 +27,7 @@ public class AccountReadServiceImpl implements IAccountReadService {
     private ObjectMapper objectMapper;
 
     @Autowired
-    private
-    IAccountRepo iAccountRepo;
+    private IAccountRepo iAccountRepo;
 
     @Autowired
     private ICustomerRepo iCustomerRepo;
@@ -38,6 +37,7 @@ public class AccountReadServiceImpl implements IAccountReadService {
 
     public AccountReadServiceImpl(IAccountRepo iAccountRepo, ICustomerRepo iCustomerRepo,
         ITransactionRepo iTransactionRepo) {
+
         this.iAccountRepo = iAccountRepo;
         this.iCustomerRepo = iCustomerRepo;
         this.iTransactionRepo = iTransactionRepo;

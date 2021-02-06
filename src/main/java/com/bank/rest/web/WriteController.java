@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api") // simple versioning (per say)
 public class WriteController {
 
     private static final Logger LOG = LoggerFactory.getLogger(WriteController.class);
@@ -53,7 +53,7 @@ public class WriteController {
 
         try {
             if (iAccountWriteServices.performCreditOperation(accountNumber, toAccountNumber, amount, customerID)) {
-                return () -> new ResponseEntity(true, HttpStatus.OK);
+                return () -> new ResponseEntity("Success", HttpStatus.OK);
             }
         } catch (Exception e) {
             return () -> new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);

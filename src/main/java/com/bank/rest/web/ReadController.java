@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api") // simple versioning (per say)
 public class ReadController {
 
     private static final Logger LOG = LoggerFactory.getLogger(ReadController.class);

@@ -68,7 +68,6 @@ public class AccountWriteServiceImpl implements IAccountWriteService {
         BigDecimal operationResult = BillingStrategy.creditStrategy().calculate(balance,
             BigDecimal.valueOf(Long.parseLong(amount)));
 
-
         Transaction transaction = iTransactionRepo.save(Transaction.builder()
             .transactionType(TransactionType.CREDIT)
             .beginningAccountBalance(balance)
